@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
 
@@ -18,6 +19,7 @@ export default function SuccessPage() {
           <p className="mt-4 text-lg text-white/60">
             Your premium access is ready. Continue to signup with the same email.
           </p>
+
           {email && <p className="mt-3 text-sm text-cyan-300">{email}</p>}
 
           <div className="mt-8">
@@ -31,5 +33,13 @@ export default function SuccessPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#060816] text-white">Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
   );
 }
