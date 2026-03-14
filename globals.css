@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background: #060816;
+  color: white;
+}
+
+.dark-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #11182b;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-select:focus {
+  outline: none;
+  border-color: rgba(34, 211, 238, 0.4);
+  background-color: #131c31;
+}
+
+.dark-select option {
+  background-color: #0b1020;
+  color: white;
+}
